@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/faith" name="FaithWanjala" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/comments">
+        <inSequence>
+            <!--<property action="remove" name="REST_URL_POSTFIX" scope="axis2"/>-->
+            <log description="FirstLog" level="full"/>
+            <call>
+                <endpoint key="gov:/endpoints/EndpointFaith.xml"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/comments">
+        <inSequence>
+            <log description="FirstLog" level="full"/>
+            <call>
+                <endpoint key="gov:/endpoints/EndpointFaith.xml"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="PUT" uri-template="/comments">
+        <inSequence>
+            <log description="FirstLog" level="full"/>
+            <call>
+                <endpoint key="gov:/endpoints/EndpointFaith.xml"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="DELETE" uri-template="/comments">
+        <inSequence>
+            <log description="FirstLog" level="full"/>
+            <call>
+                <endpoint key="gov:/endpoints/EndpointFaith.xml"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/posts">
+        <inSequence>
+            <log description="FirstLog" level="full"/>
+            <call>
+                <endpoint key="gov:/endpoints/EndpointFaith.xml"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/posts">
+        <inSequence>
+            <log description="FirstLog" level="full"/>
+            <call>
+                <endpoint key="gov:/endpoints/EndpointFaith.xml"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="PUT" uri-template="/posts">
+        <inSequence>
+            <log description="FirstLog" level="full"/>
+            <call>
+                <endpoint key="gov:/endpoints/EndpointFaith.xml"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="DELETE" uri-template="/posts">
+        <inSequence>
+            <log description="FirstLog" level="full"/>
+            <call>
+                <endpoint key="gov:/endpoints/EndpointFaith.xml"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>
