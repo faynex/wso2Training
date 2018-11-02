@@ -23,7 +23,7 @@
         <outSequence/>
         <faultSequence/>
     </resource>
-    <resource methods="PUT" uri-template="/comments">
+    <resource methods="PUT" uri-template="/comments/{uri.var.commentID}">
         <inSequence>
             <log description="FirstLog" level="full"/>
             <call>
@@ -34,7 +34,7 @@
         <outSequence/>
         <faultSequence/>
     </resource>
-    <resource methods="DELETE" uri-template="/comments">
+    <resource methods="DELETE" uri-template="/comments/{uri.var.commentID}">
         <inSequence>
             <log description="FirstLog" level="full"/>
             <call>
@@ -67,7 +67,7 @@
         <outSequence/>
         <faultSequence/>
     </resource>
-    <resource methods="PUT" uri-template="/posts">
+    <resource methods="PUT" uri-template="/posts/{uri.var.postID}">
         <inSequence>
             <log description="FirstLog" level="full"/>
             <call>
@@ -78,7 +78,7 @@
         <outSequence/>
         <faultSequence/>
     </resource>
-    <resource methods="DELETE" uri-template="/posts">
+    <resource methods="DELETE" uri-template="/posts/{uri.var.postID}">
         <inSequence>
             <log description="FirstLog" level="full"/>
             <call>

@@ -5,4 +5,7 @@
     <artifact name="FaithWanjala" groupId="ke.co.telkom.training.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/api/FaithWanjala.xml</file>
     </artifact>
+    <artifact name="PayloadFactory" groupId="ke.co.telkom.training.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/PayloadFactory.xml</file>
+    </artifact>
 </artifacts>
