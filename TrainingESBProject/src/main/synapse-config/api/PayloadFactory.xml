@@ -2,20 +2,39 @@
 <api context="/payloadfact" name="PayloadFactory" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="GET">
         <inSequence>
-            <log description="firstLog" level="custom"/>
-            <property name="log" scope="default" type="STRING" value="First API Call"/>
+            <log description="firstLog" level="custom">
+                <property name="log" value="First API Call"/>
+            </log>
             <call>
                 <endpoint key="gov:/endpoints/backendEndpoint.xml"/>
             </call>
-            <log description="LogStuff" level="custom"/>
-            <property name="log" scope="default" type="STRING" value="Incoming payload"/>
-            <payloadFactory media-type="json">
-                <format>
+            <log description="LogStuff" level="custom">
+                <property name="log" value="Incoming payload"/>
+            </log>
+            <!--  <payloadFactory media-type="json">
+               <format>
                     {
                     "Telkom ID": "$1",
                     "Telkom Kenya Comment": "$2",
                     "Test Arg": "$1"
                     }
+                </format>            
+                 
+                 
+                 
+                 
+                <args>
+                    <arg evaluator="xml" expression="//id"/>
+                    <arg evaluator="xml" expression="//comments"/>
+                </args>
+            </payloadFactory>
+            -->
+            <payloadFactory media-type="xml">
+                <format>
+                    <CheckCommentResponse>
+                        <id>$1</id>
+                        <comments>$2</comments>
+                    </CheckCommentResponse>
                 </format>
                 <args>
                     <arg evaluator="xml" expression="//id"/>
