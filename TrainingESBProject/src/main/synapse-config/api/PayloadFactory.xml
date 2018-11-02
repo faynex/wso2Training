@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <api context="/payloadfact" name="PayloadFactory" xmlns="http://ws.apache.org/ns/synapse">
-    <resource methods="GET">
+    <resource methods="GET" uri-template="/keyWord/{companyId}">
         <inSequence>
             <log description="firstLog" level="custom">
                 <property name="log" value="First API Call"/>
@@ -9,26 +9,57 @@
                 <endpoint key="gov:/endpoints/backendEndpoint.xml"/>
             </call>
             <log description="LogStuff" level="custom">
-                <property name="log" value="Incoming payload"/>
+                <property expression="get-property('uri.var.companyId')" name="log"/>
             </log>
-            <!--  <payloadFactory media-type="json">
-               <format>
+            <filter regex="telkom" source="get-property('uri.var.companyId')">
+                <then>
+                    <payloadFactory media-type="json">
+                        <format>
                     {
                     "Telkom ID": "$1",
                     "Telkom Kenya Comment": "$2",
                     "Test Arg": "$1"
                     }
-                </format>            
-                 
-                 
-                 
-                 
-                <args>
-                    <arg evaluator="xml" expression="//id"/>
-                    <arg evaluator="xml" expression="//comments"/>
-                </args>
-            </payloadFactory>
-            -->
+                </format>
+                        <args>
+                            <arg evaluator="xml" expression="//id"/>
+                            <arg evaluator="xml" expression="//comments"/>
+                        </args>
+                    </payloadFactory>
+                    <property name="HTTP_SC" scope="axis2" type="STRING" value="200"/>
+                </then>
+                <else>
+                    <filter regex="wso2" source="get-property('uri.var.companyId')">
+                        <then>
+                            <payloadFactory media-type="json">
+                                <format>
+                    {
+                    "Customer ID": "$1",
+                    "Customer Name": "$2",
+                    "Company Description": "$1"
+                    }
+                </format>
+                                <args>
+                                    <arg evaluator="xml" expression="//id"/>
+                                    <arg evaluator="xml" expression="//comments"/>
+                                </args>
+                            </payloadFactory>
+                        </then>
+                        <else>
+                            <payloadFactory media-type="json">
+                                <format>
+                    {
+                    "Error": "Parameter Error"                                     
+                    }
+                </format>
+                                <args/>
+                            </payloadFactory>
+                            <property name="HTTP_SC" scope="axis2" type="STRING" value="400"/>
+                        </else>
+                    </filter>
+                </else>
+            </filter>
+            <!-- 
             <payloadFactory media-type="xml">
                 <format>
                     <CheckCommentResponse>
@@ -41,6 +72,7 @@
                     <arg evaluator="xml" expression="//comments"/>
                 </args>
             </payloadFactory>
+             -->
             <respond/>
         </inSequence>
         <outSequence/>

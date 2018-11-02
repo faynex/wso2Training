@@ -8,4 +8,10 @@
     <artifact name="PayloadFactory" groupId="ke.co.telkom.training.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/api/PayloadFactory.xml</file>
     </artifact>
+    <artifact name="FilterAPI" groupId="ke.co.telkom.training.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/FilterAPI.xml</file>
+    </artifact>
+    <artifact name="SwitchMediator" groupId="ke.co.telkom.training.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/SwitchMediator.xml</file>
+    </artifact>
 </artifacts>

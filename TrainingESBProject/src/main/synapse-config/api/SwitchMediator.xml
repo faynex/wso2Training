@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/switch" name="SwitchMediator" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/keyWord/{companyId}">
+        <inSequence>
+            <log description="firstLog" level="custom">
+                <property name="log" value="First API Call"/>
+            </log>
+            <call>
+                <endpoint key="gov:/endpoints/backendEndpoint.xml"/>
+            </call>
+            <log description="LogStuff" level="custom">
+                <property expression="get-property('uri.var.companyId')" name="log"/>
+            </log>
+            <switch source="get-property('uri.var.companyId')">
+                <case regex="telkom">
+                    <payloadFactory media-type="json">
+                        <format>
+							{
+							"Telkom ID": "$1",
+							"Telkom Kenya Comment": "$2",
+							"Test Arg": "$1"
+							}
+						</format>
+                        <args>
+                            <arg evaluator="xml" expression="//id"/>
+                            <arg evaluator="xml" expression="//comments"/>
+                        </args>
+                    </payloadFactory>
+                    <property name="HTTP_SC" scope="axis2" type="STRING" value="200"/>
+                </case>
+                <case regex="wso2">
+                    <payloadFactory media-type="json">
+                        <format>
+							{
+							"Customer ID": "$1",
+							"Customer Name": "$2",
+							"Company Description": "$1"
+							}
+						</format>
+                        <args>
+                            <arg evaluator="xml" expression="//id"/>
+                            <arg evaluator="xml" expression="//comments"/>
+                        </args>
+                    </payloadFactory>
+                    <property name="HTTP_SC" scope="axis2" type="STRING" value="200"/>
+                </case>
+                <default>
+                    <payloadFactory media-type="json">
+                        <format>
+							{
+							"Error": "Parameter Error"
+							}
+						</format>
+                        <args/>
+                    </payloadFactory>
+                    <property name="HTTP_SC" scope="axis2" type="STRING" value="400"/>
+                </default>
+            </switch>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

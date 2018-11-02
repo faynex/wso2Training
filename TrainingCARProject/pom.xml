@@ -17,6 +17,7 @@
   <properties>
     <ke.co.telkom.training.resource_._RestTestEndpoint>capp/EnterpriseIntegrator</ke.co.telkom.training.resource_._RestTestEndpoint>
     <ke.co.telkom.training.resource_._backendEndpoint>capp/EnterpriseIntegrator</ke.co.telkom.training.resource_._backendEndpoint>
+    <ke.co.telkom.training.api_._SwitchMediator>capp/EnterpriseServiceBus</ke.co.telkom.training.api_._SwitchMediator>
     <ke.co.telkom.training.api_._TrainingFirstRestAPI>capp/EnterpriseServiceBus</ke.co.telkom.training.api_._TrainingFirstRestAPI>
     <ke.co.telkom.training.resource_._EndpointFaith>capp/EnterpriseIntegrator</ke.co.telkom.training.resource_._EndpointFaith>
     <ke.co.telkom.training.api_._FaithWanjala>capp/EnterpriseServiceBus</ke.co.telkom.training.api_._FaithWanjala>
@@ -59,6 +60,12 @@
       <artifactId>backendEndpoint</artifactId>
       <version>1.0.0</version>
       <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>ke.co.telkom.training.api</groupId>
+      <artifactId>SwitchMediator</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
     </dependency>
   </dependencies>
   <repositories>

@@ -34,4 +34,11 @@
             <mediaType>application/vnd.wso2.esb.endpoint</mediaType>
         </item>
     </artifact>
+    <artifact name="MergeEndpoint" groupId="ke.co.telkom.training.resource" version="1.0.0" type="registry/resource" serverRole="EnterpriseIntegrator">
+        <item>
+            <file>MergeEndpoint.xml</file>
+            <path>/_system/governance/endpoints</path>
+            <mediaType>application/vnd.wso2.esb.endpoint</mediaType>
+        </item>
+    </artifact>
 </artifacts>
