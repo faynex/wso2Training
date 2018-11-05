@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/merge" name="MergeAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/getData">
+        <inSequence>
+            <!-- <property name="usersid" expression="json-eval($.usersid)" /> <property 
+				name="albumsid" expression="json-eval($.albumsid)" /> -->
+            <property expression="$body//userId" name="userId" scope="default" type="STRING"/>
+            <property expression="$body//albumId" name="albumId" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="$ctx:userId" name="userId"/>
+                <property expression="$ctx:albumId" name="albumId"/>
+            </log>
+            <property action="remove" name="REST_URL_POSTFIX" scope="axis2"/>
+            <property description="Setting uri.var.Resources Parameter" name="uri.var.Resource" scope="default" type="STRING" value="users"/>
+            <property description="Setting uri.var.Resources Parameter" expression="$ctx:userId" name="uri.var.ResourceId" scope="default" type="STRING"/>
+            <!-- property name="uri.var.Resource" expression="fn:concat('/users', 
+				'ctx: usersid')" /> -->
+            <property description="Setting http method to GET" name="HTTP_METHOD" scope="axis2" type="STRING" value="GET"/>
+            <call>
+                <endpoint key="gov:/endpoints/MergeEndpoint.xml"/>
+            </call>
+            <property expression="json-eval($.)" name="userData" scope="default" type="STRING"/>
+            <!-- <property name="uri.var.Resource" expression="fn:concat('/albums', 
+				$ctx:albumsid)" /> -->
+            <property description="Setting http method to GET" name="HTTP_METHOD" scope="axis2" type="STRING" value="GET"/>
+            <property description="Setting uri.var.Resources Parameter" name="uri.var.Resource" scope="default" type="STRING" value="albums"/>
+            <property description="Setting uri.var.Resources Parameter" expression="$ctx:albumId" name="uri.var.ResourceId" scope="default" type="STRING"/>
+            <call>
+                <endpoint key="gov:/endpoints/MergeEndpoint.xml"/>
+            </call>
+            <property expression="json-eval($.)" name="albumData" scope="default" type="STRING"/>
+            <!--Directly use in a payload factory as follows -->
+            <log level="custom">
+                <property expression="$ctx:userData" name="userData"/>
+                <property expression="$ctx:albumData" name="albumData"/>
+            </log>
+            <payloadFactory media-type="json">
+                <format>
+					{"response":{
+					"userData": $1,
+					"albumData": $2,
+					}}
+				</format>
+                <args>
+                    <arg evaluator="xml" expression="get-property('userData')"/>
+                    <arg evaluator="xml" expression="get-property('albumData')"/>
+                </args>
+            </payloadFactory>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

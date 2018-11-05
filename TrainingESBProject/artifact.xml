@@ -14,4 +14,7 @@
     <artifact name="SwitchMediator" groupId="ke.co.telkom.training.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/api/SwitchMediator.xml</file>
     </artifact>
+    <artifact name="MergeAPI" groupId="ke.co.telkom.training.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/MergeAPI.xml</file>
+    </artifact>
 </artifacts>
