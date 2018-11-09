@@ -15,56 +15,23 @@
   <name>TrainingCARProject</name>
   <description>TrainingCARProject</description>
   <properties>
-    <ke.co.telkom.training.api_._SwitchMediator>capp/EnterpriseServiceBus</ke.co.telkom.training.api_._SwitchMediator>
     <ke.co.telkom.training.resource_._MergeEndpoint>capp/EnterpriseIntegrator</ke.co.telkom.training.resource_._MergeEndpoint>
     <ke.co.telkom.training.api_._EnrichAPI>capp/EnterpriseServiceBus</ke.co.telkom.training.api_._EnrichAPI>
     <ke.co.telkom.training.resource_._EnrichEndpoint>capp/EnterpriseIntegrator</ke.co.telkom.training.resource_._EnrichEndpoint>
-    <ke.co.telkom.training.api_._TrainingFirstRestAPI>capp/EnterpriseServiceBus</ke.co.telkom.training.api_._TrainingFirstRestAPI>
     <ke.co.telkom.training.resource_._MergerEndpoint>capp/EnterpriseIntegrator</ke.co.telkom.training.resource_._MergerEndpoint>
     <ke.co.telkom.training.resource_._RestTestEndpoint>capp/EnterpriseIntegrator</ke.co.telkom.training.resource_._RestTestEndpoint>
+    <ke.co.telkom.training.resource_._TrainingPostResource>capp/EnterpriseIntegrator</ke.co.telkom.training.resource_._TrainingPostResource>
     <ke.co.telkom.training.resource_._FaithEndPoint>capp/EnterpriseIntegrator</ke.co.telkom.training.resource_._FaithEndPoint>
     <ke.co.telkom.training.resource_._jsonvalidator_json>capp/EnterpriseIntegrator</ke.co.telkom.training.resource_._jsonvalidator_json>
     <ke.co.telkom.training.resource_._backendEndpoint>capp/EnterpriseIntegrator</ke.co.telkom.training.resource_._backendEndpoint>
     <artifact.types>jaggery/app=zip,synapse/priority-executor=xml,synapse/inbound-endpoint=xml,service/rule=aar,synapse/message-store=xml,event/stream=json,service/meta=xml,datasource/datasource=xml,synapse/proxy-service=xml,bpel/workflow=zip,synapse/sequence=xml,synapse/endpointTemplate=xml,carbon/application=car,wso2/gadget=dar,synapse/api=xml,synapse/event-source=xml,synapse/message-processors=xml,event/receiver=xml,lib/dataservice/validator=jar,synapse/template=xml,synapse/endpoint=xml,lib/carbon/ui=jar,lib/synapse/mediator=jar,event/publisher=xml,synapse/local-entry=xml,synapse/task=xml,webapp/jaxws=war,registry/resource=zip,synapse/configuration=xml,service/axis2=aar,synapse/lib=zip,synapse/sequenceTemplate=xml,event/execution-plan=siddhiql,service/dataservice=dbs,web/application=war,lib/library/bundle=jar</artifact.types>
     <ke.co.telkom.training.TrainingMediator_._TrainingMediator>capp/EnterpriseServiceBus</ke.co.telkom.training.TrainingMediator_._TrainingMediator>
-    <ke.co.telkom.training.api_._PayloadFactory>capp/EnterpriseServiceBus</ke.co.telkom.training.api_._PayloadFactory>
-    <ke.co.telkom.training.resource_._EndpointFaith>capp/EnterpriseIntegrator</ke.co.telkom.training.resource_._EndpointFaith>
   </properties>
   <dependencies>
     <dependency>
       <groupId>ke.co.telkom.training.TrainingMediator</groupId>
       <artifactId>TrainingMediator</artifactId>
       <version>1.0.0</version>
-    </dependency>
-    <dependency>
-      <groupId>ke.co.telkom.training.api</groupId>
-      <artifactId>EnrichAPI</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>ke.co.telkom.training.api</groupId>
-      <artifactId>TrainingFirstRestAPI</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>ke.co.telkom.training.api</groupId>
-      <artifactId>SwitchMediator</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>ke.co.telkom.training.api</groupId>
-      <artifactId>PayloadFactory</artifactId>
-      <version>1.0.0</version>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>ke.co.telkom.training.resource</groupId>
-      <artifactId>EndpointFaith</artifactId>
-      <version>1.0.0</version>
-      <type>zip</type>
     </dependency>
     <dependency>
       <groupId>ke.co.telkom.training.resource</groupId>
@@ -98,6 +65,12 @@
     </dependency>
     <dependency>
       <groupId>ke.co.telkom.training.resource</groupId>
+      <artifactId>TrainingPostResource</artifactId>
+      <version>1.0.0</version>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>ke.co.telkom.training.resource</groupId>
       <artifactId>backendEndpoint</artifactId>
       <version>1.0.0</version>
       <type>zip</type>
@@ -107,6 +80,12 @@
       <artifactId>jsonvalidator_json</artifactId>
       <version>1.0.0</version>
       <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>ke.co.telkom.training.api</groupId>
+      <artifactId>EnrichAPI</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
     </dependency>
   </dependencies>
   <repositories>
@@ -186,7 +165,7 @@
               <trustStorePath>${basedir}/src/main/resources/security/wso2carbon.jks</trustStorePath>
               <trustStorePassword>wso2carbon</trustStorePassword>
               <trustStoreType>JKS</trustStoreType>
-              <serverUrl>https://localhost:9443</serverUrl>
+              <serverUrl>https://192.168.247.1:9443</serverUrl>
               <userName>admin</userName>
               <password>admin</password>
               <operation>deploy</operation>
