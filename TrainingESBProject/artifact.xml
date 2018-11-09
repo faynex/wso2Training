@@ -17,4 +17,43 @@
     <artifact name="MergeAPI" groupId="ke.co.telkom.training.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/api/MergeAPI.xml</file>
     </artifact>
+    <artifact name="GetUserData" groupId="ke.co.telkom.training.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/GetUserData.xml</file>
+    </artifact>
+    <artifact name="jsonValidator" groupId="ke.co.telkom.training.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/jsonValidator.xml</file>
+    </artifact>
+    <artifact name="KeyValueTemplate" groupId="ke.co.telkom.training.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/KeyValueTemplate.xml</file>
+    </artifact>
+    <artifact name="TemplateAPI" groupId="ke.co.telkom.training.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/TemplateAPI.xml</file>
+    </artifact>
+    <artifact name="MediatorAPI" groupId="ke.co.telkom.training.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/MediatorAPI.xml</file>
+    </artifact>
+    <artifact name="IterateAPI" groupId="ke.co.telkom.training.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/IterateAPI.xml</file>
+    </artifact>
+    <artifact name="IterateAggregrate" groupId="ke.co.telkom.training.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/IterateAggregrate.xml</file>
+    </artifact>
+    <artifact name="EnrichAPI" groupId="ke.co.telkom.training.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/EnrichAPI.xml</file>
+    </artifact>
+    <artifact name="message-processor-fault-sequence" groupId="ke.co.telkom.training.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/message-processor-fault-sequence.xml</file>
+    </artifact>
+    <artifact name="wso2-training-message-store" groupId="ke.co.telkom.training.message-store" version="1.0.0" type="synapse/message-store" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/message-stores/wso2-training-message-store.xml</file>
+    </artifact>
+    <artifact name="training-message-processor" groupId="ke.co.telkom.training.message-processors" version="1.0.0" type="synapse/message-processors" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/message-processors/training-message-processor.xml</file>
+    </artifact>
+    <artifact name="message-processor-success-sequence" groupId="ke.co.telkom.training.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/message-processor-success-sequence.xml</file>
+    </artifact>
+    <artifact name="ESBAdvancedAPI" groupId="ke.co.telkom.training.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/ESBAdvancedAPI.xml</file>
+    </artifact>
 </artifacts>

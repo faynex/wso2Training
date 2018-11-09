@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/esbadvanced" name="ESBAdvancedAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" protocol="http" uri-template="/async">
+        <inSequence>
+            <clone>
+                <target>
+                    <sequence>
+                        <property name="HTTP_SC" scope="axis2" type="STRING" value="202"/>
+                        <respond/>
+                    </sequence>
+                </target>
+                <target>
+                    <sequence>
+                        <property action="remove" name="REST_URL_POSTFIX" scope="axis2"/>
+                        <property name="FORCE_SC_ACCEPTED" scope="axis2" type="STRING" value="true"/>
+                        <property name="OUT_ONLY" scope="default" type="STRING" value="true"/>
+                        <store messageStore="wso2-training-message-store"/>
+                    </sequence>
+                </target>
+            </clone>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

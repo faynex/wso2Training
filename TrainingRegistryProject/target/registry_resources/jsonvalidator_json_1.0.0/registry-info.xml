@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><resources>
+    <item>
+        <file>jsonvalidator.json</file>
+        <path>/_system/governance/schemas</path>
+        <mediaType>application/json</mediaType>
+    </item>
+</resources>

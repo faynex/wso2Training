@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/template" name="TemplateAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/getData">
+        <inSequence>
+            <call-template description="Call: TemplateAPI" target="TemplateAPI">
+                <with-param name="name" value="{$trp:name}"/>
+                <with-param name="age" value="{$trp:age}"/>
+            </call-template>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

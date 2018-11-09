@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/iterate" name="IterateAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" protocol="http">
+        <inSequence>
+            <call>
+                <endpoint key="gov:/endpoints/MergerEndpoint.xml"/>
+            </call>
+            <log level="full"/>
+            <!-- <iterate expression="$body/jsonArray/jsonElement" -->
+            <!-- preservePayload="true"> -->
+            <!-- <target> -->
+            <!-- <sequence> -->
+            <!-- <log level="custom"> -->
+            <!-- <property name="userName" expression="//name/text()" /> -->
+            <!-- </log> -->
+            <!-- </sequence> -->
+            <!-- </target> -->
+            <!-- </iterate> -->
+            <foreach expression="$body/jsonArray/jsonElement">
+                <sequence>
+                    <log level="custom">
+                        <property expression="//name/text()" name="userName"/>
+                    </log>
+                </sequence>
+            </foreach>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

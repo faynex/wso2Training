@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/iterateAgrregate" name="IterateAggregrate" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="POST" uri-template="/getUsers">
+        <inSequence>
+            <log level="full"/>
+            <property description="Setting http method to GET" name="HTTP_METHOD" scope="axis2" type="STRING" value="GET"/>
+            <log level="custom">
+                <property name="LOG" value="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"/>
+            </log>
+            <iterate expression="$body/jsonArray/jsonElement" id="MyIterator" preservePayload="true">
+                <target>
+                    <sequence>
+                        <property expression="//UserId/text()" name="userId" scope="default" type="STRING"/>
+                        <property action="remove" name="REST_URL_POSTFIX" scope="axis2"/>
+                        <log level="custom">
+                            <property expression="//UserId/text()" name="++++++++++++++++++++++++++++++++"/>
+                        </log>
+                        <property description="Setting uri.var.Resources Parameter" expression="$ctx:userId" name="uri.var.Resource" scope="default" type="STRING"/>
+                        <call>
+                            <endpoint key="gov:/endpoints/MergerEndpoint.xml"/>
+                        </call>
+                    </sequence>
+                </target>
+            </iterate>
+            <aggregate id="MyIterator">
+                <completeCondition>
+                    <messageCount max="-1" min="-1"/>
+                </completeCondition>
+                <onComplete expression="//jsonObject">
+                    <log level="full"/>
+                    <payloadFactory media-type="json">
+                        <format>
+							{"response":{
+							"userData": $1
+							}}
+						</format>
+                        <args>
+                            <arg evaluator="xml" expression="$body"/>
+                        </args>
+                    </payloadFactory>
+                    <respond/>
+                </onComplete>
+            </aggregate>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

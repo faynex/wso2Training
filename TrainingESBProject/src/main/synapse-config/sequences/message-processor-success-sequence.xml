@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="message-processor-success-sequence" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <log level="full"/>
+    <log level="custom">
+        <property name="Logged from" value="Success sequence"/>
+        <property expression="json-eval($.)" name="Response Body ::::::::"/>
+    </log>
+</sequence>

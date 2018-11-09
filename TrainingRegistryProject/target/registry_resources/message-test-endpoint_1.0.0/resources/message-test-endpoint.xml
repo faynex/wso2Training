@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint name="message-test-endpoint" xmlns="http://ws.apache.org/ns/synapse">
+    <http method="post" uri-template="http://jsonplaceholder.typicode.com/posts"/>
+</endpoint>

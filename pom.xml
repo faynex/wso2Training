@@ -11,6 +11,7 @@
   <modules>
     <module>TrainingRegistryProject</module>
     <module>TrainingESBProject</module>
+    <module>TrainingMediator</module>
     <module>TrainingCARProject</module>
   </modules>
   <build>

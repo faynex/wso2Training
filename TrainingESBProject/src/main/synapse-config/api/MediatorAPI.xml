@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/mediator" name="MediatorAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" protocol="http">
+        <inSequence>
+            <property name="myTestProperty" scope="default" type="STRING" value="Hi Telkom"/>
+            <class name="ke.co.telkom.training.TestClass"/>
+            <log level="custom">
+                <property expression="$ctx:myTestProperty2" name="Log printed from Synapse"/>
+            </log>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

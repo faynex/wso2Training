@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="KeyValueTemplate" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="age"/>
+    <sequence>
+        <log level="custom">
+            <property expression="$func:name" name="The name is"/>
+            <property expression="$func:age" name="The age is"/>
+        </log>
+    </sequence>
+</template>

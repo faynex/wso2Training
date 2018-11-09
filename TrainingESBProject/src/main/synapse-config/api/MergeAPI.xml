@@ -2,10 +2,46 @@
 <api context="/merge" name="MergeAPI" xmlns="http://ws.apache.org/ns/synapse">
     <resource methods="POST" uri-template="/getData">
         <inSequence>
-            <!-- <property name="usersid" expression="json-eval($.usersid)" /> <property 
-				name="albumsid" expression="json-eval($.albumsid)" /> -->
-            <property expression="$body//userId" name="userId" scope="default" type="STRING"/>
-            <property expression="$body//albumId" name="albumId" scope="default" type="STRING"/>
+            <!-- <sequence key="jsonValidator" /> -->
+            <!-- <property expression="$body//userId" name="userId" -->
+            <!-- scope="default" type="STRING" /> -->
+            <!-- <property expression="$body//albumId" name="albumId" -->
+            <!-- scope="default" type="STRING" /> -->
+            <!-- <property name="Address" scope="default"> -->
+            <!-- <adress>Address</adress> -->
+            <!-- </property> -->
+            <!-- <enrich> -->
+            <!-- <source clone="true" xpath="$ctx:Address" /> -->
+            <!-- <target action="sibling" xpath="//userId" /> -->
+            <!-- </enrich> -->
+            <!-- <property name="Age" scope="default"> -->
+            <!-- <age>Age</age> -->
+            <!-- </property> -->
+            <!-- <enrich> -->
+            <!-- <source clone="true" xpath="$ctx:Age" /> -->
+            <!-- <target action="sibling" xpath="//userId" /> -->
+            <!-- </enrich> -->
+            <property expression="json-eval($.)" name="cloneData" scope="default" type="STRING"/>
+            <log level="custom">
+                <property expression="$ctx:cloneData" name="Log"/>
+            </log>
+            <clone>
+                <target>
+                    <sequence>
+                        <log>
+                            <property expression="json-eval($.)" name="By thread1..................."/>
+                        </log>
+                        <respond/>
+                    </sequence>
+                </target>
+                <target>
+                    <sequence>
+                        <log>
+                            <property expression="json-eval($.)" name="By thread2..................."/>
+                        </log>
+                    </sequence>
+                </target>
+            </clone>
             <log level="custom">
                 <property expression="$ctx:userId" name="userId"/>
                 <property expression="$ctx:albumId" name="albumId"/>
@@ -13,8 +49,6 @@
             <property action="remove" name="REST_URL_POSTFIX" scope="axis2"/>
             <property description="Setting uri.var.Resources Parameter" name="uri.var.Resource" scope="default" type="STRING" value="users"/>
             <property description="Setting uri.var.Resources Parameter" expression="$ctx:userId" name="uri.var.ResourceId" scope="default" type="STRING"/>
-            <!-- property name="uri.var.Resource" expression="fn:concat('/users', 
-				'ctx: usersid')" /> -->
             <property description="Setting http method to GET" name="HTTP_METHOD" scope="axis2" type="STRING" value="GET"/>
             <call>
                 <endpoint key="gov:/endpoints/MergeEndpoint.xml"/>
