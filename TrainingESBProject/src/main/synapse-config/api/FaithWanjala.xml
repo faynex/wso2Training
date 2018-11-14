@@ -25,7 +25,7 @@
     </resource>
     <resource methods="PUT" uri-template="/comments/{uri.var.commentID}">
         <inSequence>
-            <log description="FirstLog" level="full"/>
+            <log description="FirstLog" level="full" scope="axis2"/>
             <call>
                 <endpoint key="gov:/endpoints/EndpointFaith.xml"/>
             </call>
@@ -47,7 +47,7 @@
     </resource>
     <resource methods="GET" uri-template="/posts">
         <inSequence>
-            <log description="FirstLog" level="full"/>
+            <log description="FirstLog" level="full" scope="axis2"/>
             <call>
                 <endpoint key="gov:/endpoints/EndpointFaith.xml"/>
             </call>
@@ -58,7 +58,7 @@
     </resource>
     <resource methods="POST" uri-template="/posts">
         <inSequence>
-            <log description="FirstLog" level="full"/>
+            <log description="FirstLog" level="full" scope="axis2"/>
             <call>
                 <endpoint key="gov:/endpoints/EndpointFaith.xml"/>
             </call>

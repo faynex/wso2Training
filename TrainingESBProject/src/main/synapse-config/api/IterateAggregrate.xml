@@ -15,7 +15,7 @@
                         <log level="custom">
                             <property expression="//UserId/text()" name="++++++++++++++++++++++++++++++++"/>
                         </log>
-                        <property description="Setting uri.var.Resources Parameter" expression="$ctx:userId" name="uri.var.Resource" scope="default" type="STRING"/>
+                        <property description="Setting uri.var.Resources Parameter" expression="$ctx:userId" name="uri.var.Resource" scope="axis2" type="STRING"/>
                         <call>
                             <endpoint key="gov:/endpoints/MergerEndpoint.xml"/>
                         </call>

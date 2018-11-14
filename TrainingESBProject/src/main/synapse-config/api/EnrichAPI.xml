@@ -33,7 +33,7 @@
                 <target action="sibling" xpath="//userId"/>
             </enrich>
             <respond/>
-        </inSequence>
+        <inSequence/>
         <outSequence/>
         <faultSequence/>
     </resource>
